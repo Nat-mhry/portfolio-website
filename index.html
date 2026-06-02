@@ -1,0 +1,1719 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Natnael Mehary — Portfolio</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Mono:wght@400;500&family=Barlow:wght@300;400;600&display=swap" rel="stylesheet">
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+:root {
+  --violet: blue;
+  --black: #000000;
+  --white: #ffffff;
+  --accent: #9900ff;
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  min-height: 100vh;
+  color: var(--white);
+  font-family: 'Barlow', sans-serif;
+  overflow-x: hidden;
+  background: blue;
+}
+
+nav {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 40px 56px 32px;
+  z-index: 100;
+}
+
+.nav-logo {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 30px;
+  color: var(--white);
+  letter-spacing: .1em;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+}
+
+.nav-logo::after {
+  content: '_';
+  display: inline-block;
+  margin-left: 6px;
+  animation: nav-blink .85s step-start infinite;
+}
+
+.nav-right { display: flex; align-items: center; gap: 22px; }
+.nav-links { display: flex; gap: 48px; list-style: none; }
+
+.nav-links a {
+  font-family: 'DM Mono', monospace;
+  font-size: 18px;
+  color: var(--white);
+  text-decoration: none;
+  letter-spacing: .18em;
+  text-transform: uppercase;
+  opacity: 1;
+  transition: opacity .2s;
+}
+
+.nav-links a::before {
+  content: attr(data-num);
+  font-size: 11px;
+  margin-right: 8px;
+  color: var(--white);
+}
+
+.nav-links a:hover { opacity: .75; }
+
+@keyframes nav-blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+
+#hero {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 0 40px 40px;
+  position: relative;
+  overflow: hidden;
+  padding-top: 160px;
+}
+
+.hero-bg-text {
+  position: absolute;
+  right: 150px;
+  top: 120px;
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: clamp(110px, 20vw, 225px);
+  text-align: end;
+  line-height: 0.8;
+  color: #fff;
+  letter-spacing: -.03em;
+  pointer-events: none;
+  user-select: none;
+  text-transform: uppercase;
+  transform: perspective(2000px) rotateY(-30deg);
+  transform-origin: top left;
+}
+
+.hero-meta {
+  position: absolute;
+  bottom: 44px;
+  left: 40px;
+  z-index: 2;
+  margin-top: 0;
+}
+
+.hero-sub {
+  font-family: 'DM Mono', monospace;
+  font-size: 15px;
+  color: #fff;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  line-height: 2.2;
+  opacity: .85;
+}
+
+.hero-scroll {
+  position: absolute;
+  bottom: 44px;
+  right: 44px;
+  font-family: 'DM Mono', monospace;
+  font-size: 13px;
+  letter-spacing: .15em;
+  text-transform: uppercase;
+  color: #fff;
+  writing-mode: vertical-rl;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.hero-scroll::after {
+  content: '';
+  display: block;
+  width: 1px;
+  height: 60px;
+  background: #fff;
+  opacity: .6;
+  animation: scroll-line 1.8s ease-in-out infinite;
+}
+
+@keyframes scroll-line {
+  0% { height: 0; opacity: 0; }
+  50% { height: 60px; opacity: .6; }
+  100% { height: 0; opacity: 0; }
+}
+
+section { padding: 100px 40px; position: relative; }
+
+.section-label {
+  font-family: 'DM Mono', monospace;
+  font-size: 13px;
+  letter-spacing: .2em;
+  text-transform: uppercase;
+  color: #fff;
+  margin-bottom: 60px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.section-label::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: #fff;
+  opacity: .5;
+}
+
+#about { background: var(--violet); }
+
+.about-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  align-items: start;
+}
+
+.about-title {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: clamp(52px, 7vw, 110px);
+  line-height: 1;
+  letter-spacing: -.02em;
+  color: var(--white);
+  text-transform: uppercase;
+}
+
+.about-title span {
+  display: inline;
+  -webkit-text-stroke: 2px var(--white);
+  color: transparent;
+}
+
+.about-text { padding-top: 20px; }
+
+.about-text p {
+  font-size: 19px;
+  font-weight: 300;
+  color: #fff;
+  line-height: 1.75;
+  margin-bottom: 24px;
+}
+
+.badge {
+  display: inline-block;
+  font-family: 'DM Mono', monospace;
+  font-size: 13px;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  padding: 6px 16px;
+  border: 1px solid #fff;
+  color: #fff;
+  margin: 4px 4px 4px 0;
+  transition: background .2s, color .2s;
+}
+
+.badge:hover { background: var(--white); color: var(--violet); }
+
+#skills { background: #050509; padding: 100px 40px; }
+#skills .section-label { color: #fff; }
+
+.skills-title {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: clamp(52px, 7vw, 100px);
+  line-height: 1;
+  letter-spacing: -.02em;
+  color: var(--white);
+  text-transform: uppercase;
+  margin-bottom: 60px;
+}
+
+.skills-title span {
+  -webkit-text-stroke: 2px var(--white);
+  color: transparent;
+}
+
+.accordion { display: flex; gap: 3px; height: 280px; }
+.acc-panel {
+  flex: 1;
+  background: rgba(255,255,255,.03);
+  border: 1px solid rgba(255,255,255,.07);
+  padding: 28px 22px;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  transition: flex .5s cubic-bezier(.77,0,.18,1), background .3s, border-color .3s;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+}
+.acc-panel:hover {
+  flex: 4;
+  background: rgba(153,0,255,.07);
+  border-color: rgba(153,0,255,.3);
+}
+.acc-panel::before {
+  content: '';
+  position: absolute;
+  bottom: 0; left: 0;
+  width: 2px; height: 0;
+  background: var(--accent);
+  transition: height .45s cubic-bezier(.77,0,.18,1);
+}
+.acc-panel:hover::before { height: 100%; }
+
+.acc-cat {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 22px;
+  color: var(--white);
+  letter-spacing: .04em;
+  white-space: nowrap;
+  writing-mode: vertical-rl;
+  transform: rotate(180deg);
+  transition: writing-mode .3s, transform .25s, font-size .25s, margin .25s;
+  margin-bottom: 0;
+  margin-top: 30px;
+}
+.acc-panel:hover .acc-cat {
+  writing-mode: horizontal-tb;
+  transform: none;
+  font-size: 30px;
+  margin-bottom: 16px;
+}
+
+.acc-skills {
+  opacity: 0;
+  max-height: 0;
+  overflow: hidden;
+  transition: opacity .35s .1s, max-height .45s cubic-bezier(.77,0,.18,1);
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+.acc-panel:hover .acc-skills { opacity: 1; max-height: 300px; }
+
+.acc-skill {
+  font-family: 'DM Mono', monospace;
+  font-size: 15px;
+  letter-spacing: .08em;
+  color: var(--white);
+  padding: 8px 0;
+  border-bottom: 1px solid rgba(255,255,255,.07);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.acc-skill::before {
+  content: '';
+  width: 5px; height: 5px;
+  border-radius: 50%;
+  background: var(--accent);
+  flex-shrink: 0;
+}
+.acc-skill:last-child { border-bottom: none; }
+
+.acc-num {
+  position: absolute;
+  top: 18px; right: 18px;
+  font-family: 'DM Mono', monospace;
+  font-size: 13px;
+  color: var(--accent);
+  letter-spacing: .1em;
+}
+
+#projects { background: var(--white); padding: 100px 0; }
+
+#projects .section-label {
+  color: var(--black);
+  padding: 0 56px;
+  margin-bottom: 48px;
+}
+
+#projects .section-label::after { background: var(--black); opacity: .15; }
+
+.proj-header { padding: 0 56px; margin-bottom: 64px; }
+
+.proj-big-title {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: clamp(54px, 8vw, 130px);
+  line-height: .95;
+  letter-spacing: -.02em;
+  color: var(--black);
+  text-transform: uppercase;
+}
+
+.proj-big-title span {
+  -webkit-text-stroke: 2px var(--black);
+  color: transparent;
+}
+
+.proj-list { display: flex; flex-direction: column; }
+
+.proj-item {
+  display: grid;
+  grid-template-columns: 72px 1fr 180px 80px 52px;
+  align-items: center;
+  gap: 0 36px;
+  padding: 30px 56px;
+  border-top: 1px solid rgba(0,0,0,.08);
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+  transition: background .25s;
+}
+
+.proj-item:last-child { border-bottom: 1px solid rgba(0,0,0,.08); }
+
+.proj-item::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; bottom: 0;
+  width: 0;
+  background: rgba(0,0,0,.03);
+  transition: width .4s cubic-bezier(.77,0,.18,1);
+  z-index: 0;
+}
+
+.proj-item:hover::before { width: 100%; }
+
+.proj-item::after {
+  content: '';
+  position: absolute;
+  bottom: -1px;
+  left: 56px; right: 56px;
+  height: 2px;
+  background: var(--accent);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform .4s cubic-bezier(.77,0,.18,1);
+}
+
+.proj-item:hover::after { transform: scaleX(1); }
+.proj-item > * { position: relative; z-index: 1; }
+
+.proj-num {
+  font-family: 'DM Mono', monospace;
+  font-size: 13px;
+  color: var(--accent);
+  letter-spacing: .12em;
+}
+
+.proj-name {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: clamp(28px, 3.5vw, 54px);
+  color: var(--black);
+  letter-spacing: -.01em;
+  line-height: 1;
+  transition: letter-spacing .35s;
+}
+
+.proj-item:hover .proj-name { letter-spacing: .04em; }
+
+.proj-tags { display: flex; gap: 8px; flex-wrap: wrap; }
+
+.proj-tag {
+  font-family: 'DM Mono', monospace;
+  font-size: 12px;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  padding: 5px 12px;
+  border: 1px solid rgba(0,0,0,.18);
+  color: rgba(0,0,0,.45);
+}
+
+.proj-year {
+  font-family: 'DM Mono', monospace;
+  font-size: 13px;
+  color: rgba(0,0,0,.3);
+  letter-spacing: .08em;
+  text-align: right;
+}
+
+.proj-arrow {
+  font-size: 22px;
+  color: rgba(0,0,0,.2);
+  transition: color .2s, transform .2s;
+  text-align: right;
+}
+
+.proj-item:hover .proj-arrow { color: var(--accent); transform: rotate(-45deg); }
+
+#parcours { background: var(--violet); }
+#parcours .section-label { color: #fff; }
+#parcours .section-label::after { background: #fff; opacity: .5; }
+
+.tl {
+  position: relative;
+  padding-left: 52px;
+  max-width: 720px;
+  margin: 0 auto;
+}
+
+.tl::before {
+  content: '';
+  position: absolute;
+  left: 10px; top: 8px; bottom: 8px;
+  width: 1px;
+  background: rgba(255,255,255,.25);
+}
+
+.tl-item { position: relative; margin-bottom: 52px; }
+.tl-item:last-child { margin-bottom: 0; }
+
+.tl-item::before {
+  content: '';
+  position: absolute;
+  left: -46px; top: 8px;
+  width: 10px; height: 10px;
+  border-radius: 50%;
+  background: #fff;
+  box-shadow: 0 0 0 4px rgba(255,255,255,.15);
+  transition: box-shadow .25s, transform .25s;
+}
+
+.tl-item:hover::before {
+  box-shadow: 0 0 0 6px rgba(255,255,255,.25);
+  transform: scale(1.2);
+}
+
+.tl-year {
+  font-family: 'DM Mono', monospace;
+  font-style: italic;
+  font-size: 13px;
+  letter-spacing: .2em;
+  text-transform: uppercase;
+  color: var(--white);
+  margin-bottom: 8px;
+}
+
+.tl-school {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 36px;
+  color: #fff;
+  letter-spacing: .02em;
+  line-height: 1;
+  margin-bottom: 10px;
+}
+
+.tl-detail {
+  font-size: 16px;
+  font-weight: bold;
+  color: rgba(255,255,255,.75);
+  line-height: 1.7;
+  margin-bottom: 14px;
+  max-width: 560px;
+}
+
+.tl-tags { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 14px; }
+
+.tl-tag {
+  font-family: 'DM Mono', monospace;
+  font-size: 12px;
+  font-weight: bold;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  padding: 5px 14px;
+  border: 1px solid rgba(255,255,255,.25);
+  color: rgba(255,255,255,.65);
+}
+
+.tl-badge {
+  font-family: 'DM Mono', monospace;
+  font-size: 12px;
+  font-weight: bold;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  padding: 6px 16px;
+  border: 2px solid var(--accent);
+  color: #fff;
+  display: inline-block;
+}
+
+#contact { background: #050509; }
+
+.contact-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  align-items: start;
+}
+
+.contact-big {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: clamp(54px, 6vw, 110px);
+  line-height: 1;
+  letter-spacing: -.02em;
+  color: var(--white);
+  text-transform: uppercase;
+}
+
+.contact-big span {
+  -webkit-text-stroke: 2px var(--white);
+  color: transparent;
+}
+
+.contact-social { margin-top: 48px; display: flex; flex-direction: column; gap: 0; }
+
+.soc-link {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 18px 0;
+  border-top: 1px solid rgba(255,255,255,.15);
+  text-decoration: none;
+  transition: padding-left .2s;
+}
+
+.soc-link:last-child { border-bottom: 1px solid rgba(255,255,255,.15); }
+.soc-link:hover { padding-left: 10px; }
+
+.soc-name {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 26px;
+  color: var(--white);
+  letter-spacing: .02em;
+}
+
+.soc-handle {
+  font-family: 'DM Mono', monospace;
+  font-size: 13px;
+  color: #fff;
+  letter-spacing: .08em;
+}
+
+.contact-form { padding-top: 12px; }
+.form-group { margin-bottom: 28px; }
+
+.form-group label {
+  display: block;
+  font-family: 'DM Mono', monospace;
+  font-size: 12px;
+  letter-spacing: .2em;
+  text-transform: uppercase;
+  color: #fff;
+  margin-bottom: 10px;
+}
+
+.form-group input,
+.form-group textarea {
+  width: 100%;
+  background: rgba(255,255,255,.06);
+  border: none;
+  border-bottom: 1px solid rgba(255,255,255,.4);
+  color: var(--white);
+  font-family: 'Barlow', sans-serif;
+  font-size: 16px;
+  font-weight: 300;
+  padding: 12px 0;
+  outline: none;
+  transition: border-color .2s;
+}
+
+.form-group input::placeholder,
+.form-group textarea::placeholder { color: rgba(255,255,255,.5); }
+
+.form-group input:focus,
+.form-group textarea:focus { border-bottom-color: var(--accent); }
+
+.form-group textarea { resize: none; height: 100px; }
+
+.btn-send {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 18px;
+  letter-spacing: .08em;
+  color: var(--black);
+  background: var(--white);
+  border: none;
+  padding: 14px 36px;
+  cursor: pointer;
+  transition: background .2s, color .2s, transform .2s;
+}
+
+.btn-send:hover {
+  background: var(--accent);
+  color: var(--white);
+  transform: translateY(-2px);
+}
+
+footer {
+  background: #050509;
+  padding: 28px 40px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-top: 1px solid rgba(255,255,255,.15);
+}
+
+footer p {
+  font-family: 'DM Mono', monospace;
+  font-size: 12px;
+  color: #fff;
+  letter-spacing: .1em;
+}
+
+.reveal { opacity: 0; transform: translateY(30px); transition: opacity .7s ease, transform .7s ease; }
+.reveal.visible { opacity: 1; transform: translateY(0); }
+
+.ticker-wrap { overflow: hidden; background: #050509; padding: 14px 0; white-space: nowrap; }
+.ticker-inner { display: inline-flex; animation: ticker 20s linear infinite; }
+
+.ticker-item {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 13px;
+  letter-spacing: .2em;
+  color: var(--white);
+  padding: 0 40px;
+  text-transform: uppercase;
+}
+
+.ticker-item span { color: var(--accent); margin: 0 16px; }
+
+@keyframes ticker {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+.terminal-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity .3s ease;
+  background: rgba(0,0,0,.15);
+}
+
+.terminal-overlay.open { opacity: 1; pointer-events: all; }
+
+.terminal-window {
+  width: min(680px, 92vw);
+  position: relative;
+  border-radius: 24px;
+  background: rgba(8,2,20,.55);
+  backdrop-filter: blur(80px) saturate(200%) brightness(1.05);
+  -webkit-backdrop-filter: blur(80px) saturate(200%) brightness(1.05);
+  border: 1px solid rgba(255,255,255,.38);
+  box-shadow: 0 48px 120px rgba(0,0,0,.4), inset 0 1.5px 0 rgba(255,255,255,.38);
+  overflow: hidden;
+  transform: scale(.93) translateY(16px);
+  transition: transform .34s cubic-bezier(.34,1.56,.64,1), opacity .28s ease;
+  opacity: 0;
+}
+
+.terminal-window::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 64px;
+  background: linear-gradient(180deg, rgba(255,255,255,.22) 0%, rgba(255,255,255,.06) 50%, transparent 100%);
+  border-radius: 24px 24px 0 0;
+  pointer-events: none;
+  z-index: 10;
+}
+
+.terminal-overlay.open .terminal-window { transform: scale(1) translateY(0); opacity: 1; }
+
+.terminal-titlebar {
+  display: flex;
+  align-items: center;
+  padding: 15px 20px 14px;
+  border-bottom: 1px solid rgba(255,255,255,.12);
+  position: relative;
+  z-index: 11;
+  background: rgba(0,0,0,.25);
+}
+
+.terminal-dots { display: flex; gap: 8px; }
+
+.dot {
+  width: 13px; height: 13px;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: filter .15s, transform .15s;
+  box-shadow: inset 0 1px 2px rgba(255,255,255,.5), 0 1px 4px rgba(0,0,0,.35);
+}
+
+.dot:hover { filter: brightness(.72); transform: scale(1.1); }
+.dot-red { background: radial-gradient(circle at 35% 30%, #ff8f8a, #ff5f57 70%); }
+.dot-yellow { background: radial-gradient(circle at 35% 30%, #ffe680, #febc2e 70%); }
+.dot-green { background: radial-gradient(circle at 35% 30%, #80e880, #28c840 70%); }
+
+.terminal-path {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  font-family: 'DM Mono', monospace;
+  font-size: 12px;
+  font-weight: 500;
+  color: rgba(255,255,255,.48);
+  letter-spacing: .06em;
+  white-space: nowrap;
+  pointer-events: none;
+}
+
+.terminal-body {
+  padding: 28px 30px 36px;
+  max-height: 75vh;
+  overflow-y: auto;
+  scrollbar-width: none;
+  position: relative;
+  z-index: 11;
+}
+
+.terminal-body::-webkit-scrollbar { display: none; }
+
+.t-proj-label {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-family: 'DM Mono', monospace;
+  font-size: 10px;
+  letter-spacing: .24em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,.4);
+  margin-bottom: 14px;
+}
+
+.t-proj-label::before {
+  content: '';
+  width: 18px; height: 1px;
+  background: rgba(255,255,255,.3);
+  display: block;
+}
+
+.t-proj-title {
+  font-family: 'Barlow', sans-serif;
+  font-size: 24px;
+  font-weight: 600;
+  color: #fff;
+  margin-bottom: 18px;
+  line-height: 1.18;
+  letter-spacing: -.02em;
+}
+
+.t-meta-row { display: flex; gap: 10px; flex-wrap: wrap; margin-bottom: 22px; }
+
+.t-meta-chip {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-family: 'DM Mono', monospace;
+  font-size: 10px;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  padding: 5px 12px;
+  background: rgba(255,255,255,.05);
+  border: 1px solid rgba(255,255,255,.12);
+  border-radius: 6px;
+  color: rgba(255,255,255,.55);
+}
+
+.t-meta-chip span { font-size: 13px; }
+
+.t-gallery {
+  position: relative;
+  width: 100%;
+  height: 210px;
+  background: rgba(0,0,0,.3);
+  border-radius: 12px;
+  overflow: hidden;
+  margin-bottom: 24px;
+  border: 1px solid rgba(255,255,255,.1);
+}
+
+.t-gallery-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  transition: opacity .45s ease;
+}
+
+.t-gallery-img.active { opacity: 1; }
+
+.t-gallery-placeholder {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  font-family: 'DM Mono', monospace;
+  font-size: 11px;
+  letter-spacing: .14em;
+  color: rgba(255,255,255,.2);
+  text-transform: uppercase;
+  background: repeating-linear-gradient(45deg, rgba(255,255,255,.02) 0px, rgba(255,255,255,.02) 1px, transparent 1px, transparent 12px);
+}
+
+.t-gallery-placeholder svg { opacity: .15; }
+
+.t-gallery-badge {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  z-index: 5;
+  font-family: 'DM Mono', monospace;
+  font-size: 9px;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  padding: 5px 12px;
+  background: rgba(0,0,0,.55);
+  border: 1px solid rgba(255,255,255,.2);
+  color: rgba(255,255,255,.8);
+  border-radius: 6px;
+  backdrop-filter: blur(8px);
+}
+
+.t-gallery-caption {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 10px 14px;
+  background: linear-gradient(transparent, rgba(0,0,0,.7));
+  font-family: 'DM Mono', monospace;
+  font-size: 10px;
+  letter-spacing: .08em;
+  color: rgba(255,255,255,.6);
+  z-index: 5;
+  opacity: 0;
+  transition: opacity .25s;
+}
+
+.t-gallery:hover .t-gallery-caption { opacity: 1; }
+
+.t-gallery-nav {
+  position: absolute;
+  bottom: 12px;
+  right: 12px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  z-index: 6;
+}
+
+.t-gallery-btn {
+  width: 30px;
+  height: 30px;
+  background: rgba(0,0,0,.5);
+  border: 1px solid rgba(255,255,255,.2);
+  border-radius: 8px;
+  color: #fff;
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background .18s, border-color .18s;
+  backdrop-filter: blur(10px);
+}
+
+.t-gallery-btn:hover { background: var(--accent); border-color: var(--accent); }
+
+.t-gallery-counter {
+  font-family: 'DM Mono', monospace;
+  font-size: 10px;
+  color: rgba(255,255,255,.5);
+  letter-spacing: .1em;
+}
+
+.t-gallery-dots {
+  position: absolute;
+  bottom: 14px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 6px;
+  z-index: 6;
+}
+
+.t-gallery-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: rgba(255,255,255,.25);
+  border: none;
+  cursor: pointer;
+  transition: background .2s, transform .2s;
+  padding: 0;
+}
+
+.t-gallery-dot.active { background: #fff; transform: scale(1.2); }
+
+.t-proj-desc {
+  font-family: 'Barlow', sans-serif;
+  font-size: 14px;
+  font-weight: 300;
+  color: rgba(255,255,255,.8);
+  line-height: 1.75;
+  margin-bottom: 20px;
+  padding: 15px 18px;
+  background: rgba(0,0,0,.25);
+  border-radius: 12px;
+  border: 1px solid rgba(255,255,255,.1);
+}
+
+.t-stats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 8px;
+  margin-bottom: 22px;
+}
+
+.t-stat {
+  background: rgba(255,255,255,.04);
+  border: 1px solid rgba(255,255,255,.08);
+  border-radius: 10px;
+  padding: 12px 10px;
+  text-align: center;
+}
+
+.t-stat-val {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 26px;
+  color: #fff;
+  letter-spacing: .04em;
+  display: block;
+}
+
+.t-stat-lbl {
+  font-family: 'DM Mono', monospace;
+  font-size: 9px;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,.35);
+}
+
+.t-quote {
+  border-left: 2px solid var(--accent);
+  padding: 10px 16px;
+  margin: 0 0 22px;
+  font-family: 'Barlow', sans-serif;
+  font-size: 13px;
+  font-weight: 300;
+  font-style: italic;
+  color: rgba(255,255,255,.6);
+  background: rgba(153,0,255,.06);
+  border-radius: 0 8px 8px 0;
+}
+
+.t-section-title {
+  font-family: 'DM Mono', monospace;
+  font-size: 10px;
+  letter-spacing: .22em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,.32);
+  margin-bottom: 13px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.t-section-title::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: rgba(255,255,255,.1);
+}
+
+.t-features { list-style: none; margin-bottom: 24px; }
+
+.t-features li {
+  font-family: 'Barlow', sans-serif;
+  font-size: 14px;
+  font-weight: 300;
+  color: rgba(255,255,255,.8);
+  padding: 10px 0;
+  border-bottom: 1px solid rgba(255,255,255,.07);
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  line-height: 1.5;
+}
+
+.t-features li:last-child { border-bottom: none; }
+
+.t-features li::before {
+  content: '';
+  display: block;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: rgba(255,255,255,.6);
+  flex-shrink: 0;
+  margin-top: 6px;
+}
+
+.t-tech-row { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 0; }
+
+.t-tech {
+  font-family: 'DM Mono', monospace;
+  font-size: 11px;
+  letter-spacing: .06em;
+  padding: 6px 16px;
+  border-radius: 30px;
+  background: rgba(255,255,255,.1);
+  border: 1px solid rgba(255,255,255,.2);
+  color: rgba(255,255,255,.85);
+  transition: background .18s;
+}
+
+.t-tech:hover { background: rgba(255,255,255,.16); }
+
+.t-collab {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+  background: rgba(255,255,255,.04);
+  border: 1px solid rgba(255,255,255,.1);
+  border-radius: 12px;
+  padding: 16px 18px;
+  margin-bottom: 22px;
+}
+
+.t-collab-icon { font-size: 22px; flex-shrink: 0; line-height: 1.2; }
+
+.t-collab-text {
+  font-family: 'Barlow', sans-serif;
+  font-size: 13px;
+  font-weight: 300;
+  color: rgba(255,255,255,.7);
+  line-height: 1.7;
+}
+
+.t-collab-text strong {
+  color: #fff;
+  font-weight: 600;
+  display: block;
+  margin-bottom: 4px;
+  font-size: 14px;
+}
+
+@media(max-width:900px) {
+  nav { padding: 20px 24px; flex-wrap: wrap; gap: 12px; }
+  .nav-right { flex-direction: column-reverse; align-items: flex-end; gap: 14px; }
+  .nav-links { gap: 18px; flex-wrap: wrap; justify-content: flex-end; }
+  .hero-bg-text { right: -18%; font-size: clamp(80px, 20vw, 170px); }
+  .hero-meta { position: absolute; bottom: 100px; left: 24px; }
+  .about-grid, .contact-grid { grid-template-columns: 1fr; }
+  .accordion { flex-direction: column; height: auto; }
+  .acc-panel { flex: none !important; height: auto; padding: 20px; }
+  .acc-cat { writing-mode: horizontal-tb !important; transform: none !important; font-size: 24px; margin-bottom: 12px; }
+  .acc-skills { opacity: 1 !important; max-height: none !important; }
+  .proj-item { grid-template-columns: 48px 1fr 52px; padding: 20px 24px; }
+  .proj-item:hover { padding-left: 24px; }
+  .proj-tags, .proj-year { display: none; }
+  .tl { padding-left: 36px; }
+  .tl-item::before { left: -32px; }
+  .t-stats { grid-template-columns: repeat(2, 1fr); }
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="#" class="nav-logo">NATNAEL MEHARY</a>
+  <div class="nav-right">
+    <ul class="nav-links">
+      <li><a href="#about" data-num="01">À propos</a></li>
+      <li><a href="#skills" data-num="02">Compétences</a></li>
+      <li><a href="#projects" data-num="03">Projets</a></li>
+      <li><a href="#parcours" data-num="04">Parcours</a></li>
+      <li><a href="#contact" data-num="05">Contact</a></li>
+    </ul>
+  </div>
+</nav>
+
+<section id="hero">
+  <div class="hero-bg-text">NATNAEL<br>MEHARY<br>FULL‑STACK<br>DEV</div>
+  <div class="hero-meta reveal">
+    <div class="hero-sub">
+      Étudiant BUT Info<br>
+      Grenoble(38) - FR<br>
+      2026
+    </div>
+  </div>
+  <div class="hero-scroll">Défiler</div>
+</section>
+
+<div class="ticker-wrap">
+  <div class="ticker-inner">
+    <span class="ticker-item">Java <span>✦</span></span>
+    <span class="ticker-item">HTML / CSS <span>✦</span></span>
+    <span class="ticker-item">PostgreSQL <span>✦</span></span>
+    <span class="ticker-item">Shell Bash <span>✦</span></span>
+    <span class="ticker-item">JavaFX <span>✦</span></span>
+    <span class="ticker-item">Assembly x86 <span>✦</span></span>
+    <span class="ticker-item">R <span>✦</span></span>
+    <span class="ticker-item">Git <span>✦</span></span>
+    <span class="ticker-item">Java <span>✦</span></span>
+    <span class="ticker-item">HTML / CSS <span>✦</span></span>
+    <span class="ticker-item">PostgreSQL <span>✦</span></span>
+    <span class="ticker-item">Shell Linux <span>✦</span></span>
+    <span class="ticker-item">JavaFX <span>✦</span></span>
+    <span class="ticker-item">Assembleur <span>✦</span></span>
+    <span class="ticker-item">R <span>✦</span></span>
+    <span class="ticker-item">Git <span>✦</span></span>
+  </div>
+</div>
+
+<section id="about">
+  <div class="section-label">À propos</div>
+  <div class="about-grid reveal">
+    <div>
+      <div class="about-title">À&nbsp;PROPOS <span><br>DE MOI</span></div>
+    </div>
+    <div class="about-text">
+      <p>Je suis un étudiant en BUT Informatique à l'IUT de Grenoble, passionné par le développement informatique et l'administration système. J'ai un solide niveau d'anglais qui me donne la possibilité de travailler à l'international. Mon objectif est d'exercer un métier frontend ou full-stack en entreprise.</p>
+      <div style="margin-top:32px;">
+        <span class="badge">18 ans</span>
+        <span class="badge">Anglais C1</span>
+        <span class="badge">Programmation</span>
+        <span class="badge">Administration</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="skills">
+  <div class="section-label">Compétences</div>
+  <div class="skills-title reveal">MES<br><span>Compétences</span></div>
+  <div class="accordion reveal">
+    <div class="acc-panel">
+      <span class="acc-num">01</span>
+      <div class="acc-skills">
+        <div class="acc-skill">Java</div>
+        <div class="acc-skill">PostgreSQL</div>
+        <div class="acc-skill">Shell Linux</div>
+        <div class="acc-skill">Assembly x86</div>
+        <div class="acc-skill">R project</div>
+      </div>
+      <div class="acc-cat">Backend</div>
+    </div>
+    <div class="acc-panel">
+      <span class="acc-num">02</span>
+      <div class="acc-skills">
+        <div class="acc-skill">JavaFX</div>
+        <div class="acc-skill">HTML</div>
+        <div class="acc-skill">CSS</div>
+        <div class="acc-skill">JavaScript</div>
+      </div>
+      <div class="acc-cat">Frontend</div>
+    </div>
+    <div class="acc-panel">
+      <span class="acc-num">03</span>
+      <div class="acc-skills">
+        <div class="acc-skill">GitLab / GitHub</div>
+        <div class="acc-skill">Distributions Linux</div>
+        <div class="acc-skill">IntelliJ / VS Code</div>
+        <div class="acc-skill">Blender</div>
+      </div>
+      <div class="acc-cat">Outils</div>
+    </div>
+  </div>
+</section>
+
+<section id="projects">
+  <div class="section-label">Projets</div>
+  <div class="proj-header reveal">
+    <div class="proj-big-title">MES<br><span>PROJETS</span></div>
+  </div>
+  <div class="proj-list">
+    <div class="proj-item reveal" data-project="001">
+      <span class="proj-num">001</span>
+      <span class="proj-name">SAE — Setup Dev</span>
+      <div class="proj-tags"><span class="proj-tag">Linux</span><span class="proj-tag">Scolaire</span></div>
+      <span class="proj-year">2024</span>
+      <span class="proj-arrow">↗</span>
+    </div>
+    <div class="proj-item reveal" data-project="002">
+      <span class="proj-num">002</span>
+      <span class="proj-name">Blender 3D</span>
+      <div class="proj-tags"><span class="proj-tag">3D</span><span class="proj-tag">Perso</span></div>
+      <span class="proj-year">2024</span>
+      <span class="proj-arrow">↗</span>
+    </div>
+    <div class="proj-item reveal" data-project="003">
+      <span class="proj-num">003</span>
+      <span class="proj-name">Portfolio</span>
+      <div class="proj-tags"><span class="proj-tag">HTML/CSS</span><span class="proj-tag">JS</span></div>
+      <span class="proj-year">2025</span>
+      <span class="proj-arrow">↗</span>
+    </div>
+    <div class="proj-item reveal" data-project="004">
+      <span class="proj-num">004</span>
+      <span class="proj-name">SAE — Réseau</span>
+      <div class="proj-tags"><span class="proj-tag">Linux</span><span class="proj-tag">Scolaire</span></div>
+      <span class="proj-year">2025</span>
+      <span class="proj-arrow">↗</span>
+    </div>
+    <div class="proj-item reveal" data-project="005">
+      <span class="proj-num">005</span>
+      <span class="proj-name">SAE — Serveur Web</span>
+      <div class="proj-tags"><span class="proj-tag">Debian</span><span class="proj-tag">Scolaire</span></div>
+      <span class="proj-year">2025</span>
+      <span class="proj-arrow">↗</span>
+    </div>
+  </div>
+</section>
+
+<section id="parcours">
+  <div class="section-label">Parcours scolaire</div>
+  <div class="tl reveal">
+    <div class="tl-item">
+      <div class="tl-year">2017 — 2021</div>
+      <div class="tl-school">Collège Saint François</div>
+      <div class="tl-detail">Formation générale — premiers contacts avec l'informatique et la logique de programmation.</div>
+      <div class="tl-tags">
+        <span class="tl-tag">Brevet — mention Bien</span>
+        <span class="tl-tag">Initiation algorithmique</span>
+      </div>
+      <span class="tl-badge">Brevet obtenu</span>
+    </div>
+    <div class="tl-item">
+      <div class="tl-year">2021 — 2024</div>
+      <div class="tl-school">Lycée Sainte Cécile</div>
+      <div class="tl-detail">Bac général — spécialité NSI. Stage en entreprise : création d'une interface web dynamique.</div>
+      <div class="tl-tags">
+        <span class="tl-tag">NSI — Python / HTML / SQL</span>
+        <span class="tl-tag">Stage web dynamique</span>
+        <span class="tl-tag">Maths expertes</span>
+      </div>
+      <span class="tl-badge">Bac général obtenu</span>
+    </div>
+    <div class="tl-item">
+      <div class="tl-year">2024 — Maintenant</div>
+      <div class="tl-school">BUT Info — IUT Grenoble</div>
+      <div class="tl-detail">Développement logiciel, réseaux, bases de données, systèmes d'exploitation. SAEs techniques réalisées en équipe.</div>
+      <div class="tl-tags">
+        <span class="tl-tag">Java / PostgreSQL / Shell</span>
+        <span class="tl-tag">SAE setup dev</span>
+        <span class="tl-tag">SAE base de données</span>
+        <span class="tl-tag">SAE serveur web</span>
+      </div>
+      <span class="tl-badge">En cours — BUT 1</span>
+    </div>
+  </div>
+</section>
+
+<section id="contact">
+  <div class="section-label">Contact</div>
+  <div class="contact-grid reveal">
+    <div>
+      <div class="contact-big">ME<br><span>CONTACTER</span></div>
+      <div class="contact-social">
+        <a class="soc-link" href="CV.pdf" target="_blank">
+          <span class="soc-name">CV</span>
+          <span class="soc-handle">CV.pdf →</span>
+        </a>
+        <a class="soc-link" href="https://github.com/Nat-mhry" target="_blank">
+          <span class="soc-name">GitHub</span>
+          <span class="soc-handle">@Nat-mhry →</span>
+        </a>
+        <a class="soc-link" href="https://www.linkedin.com/in/votreprofil" target="_blank">
+          <span class="soc-name">LinkedIn</span>
+          <span class="soc-handle">Natnael Mehary →</span>
+        </a>
+        <a class="soc-link" href="mailto:natnael.mhry@gmail.com">
+          <span class="soc-name">Email</span>
+          <span class="soc-handle">natnael.mhry@gmail.com →</span>
+        </a>
+      </div>
+    </div>
+    <div class="contact-form">
+      <form action="traitement_formulaire.php" method="post">
+        <div class="form-group">
+          <label for="nom">Nom</label>
+          <input type="text" id="nom" name="nom" required placeholder="Votre nom">
+        </div>
+        <div class="form-group">
+          <label for="email">Email</label>
+          <input type="email" id="email" name="email" required placeholder="votre@email.com">
+        </div>
+        <div class="form-group">
+          <label for="message">Message</label>
+          <textarea id="message" name="message" rows="5" required placeholder="Votre message"></textarea>
+        </div>
+        <button class="btn-send" type="submit">Envoyer →</button>
+      </form>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <p></p>
+  <p>© 2026 Natnael Mehary / FULL‑STACK DEV</p>
+  <p></p>
+</footer>
+
+<div class="terminal-overlay" id="terminalOverlay">
+  <div class="terminal-window">
+    <div class="terminal-titlebar">
+      <div class="terminal-dots">
+        <div class="dot dot-red" id="dotClose"></div>
+        <div class="dot dot-yellow"></div>
+        <div class="dot dot-green"></div>
+      </div>
+      <div class="terminal-path" id="terminalPath">portfolio/projects/001</div>
+    </div>
+    <div class="terminal-body" id="terminalBody"></div>
+  </div>
+</div>
+
+<script>
+const projects = {
+  "001": {
+    path: "portfolio/projects/01",
+    num: "Project 01",
+    badge: "Scolaire • Linux",
+    title: "Installation d'un poste pour le développement",
+    year: "2024",
+    duration: "4 semaines",
+    type: "SAE BUT1",
+    images: [
+      { src: "img/sae01-poste.png", caption: "Capture du poste de développement depuis l'émulateur QEMU" },
+      { src: "img/sae01-df.png", caption: "Commande df — espace disque avec IntelliJ & Snap visibles" },
+      { src: "img/sae01-carte.png", caption: "Carte mentale récapitulant les étapes d'installation" }
+    ],
+    desc: "L'objectif principal de ce projet était d'apprendre à installer un poste de travail complet, comprenant le fonctionnement du système d'exploitation Linux. Nous devions également produire une carte mentale récapitulant l'ensemble des étapes de cette installation.",
+    longDesc: "Même si la production de la carte mentale était individuelle, le travail s'est fait dans un cadre collectif : nous avons échangé entre camarades pendant les séances pour corriger d'éventuelles erreurs et nous entraider sur les étapes les plus techniques.",
+    stats: [
+      { val: "4", lbl: "Semaines" },
+      { val: "2", lbl: "Membres" },
+      { val: "1", lbl: "Carte mentale" }
+    ],
+    quote: "Apprendre à préparer son poste, c'est apprendre à travailler comme un pro.",
+    features: [
+      "Maîtrise de l'installation d'un poste de développement sous Linux",
+      "Connaissance des composants logiciels essentiels à un environnement de développement",
+      "Création d'une carte mentale lisible, hiérarchisée et visuellement efficace",
+      "Respect des consignes techniques et administratives pour un rendu professionnel",
+      "Capture du poste depuis l'émulateur QEMU avec IntelliJ et Snap installés"
+    ],
+    collab: "Même si la production de la carte mentale était individuelle, le travail s'est fait dans un cadre collectif : nous avons échangé entre camarades pendant les séances pour corriger d'éventuelles erreurs.",
+    tech: ["Linux", "QEMU", "IntelliJ IDEA", "Snap", "Bash", "Git"]
+  },
+  "002": {
+    path: "portfolio/projects/02",
+    num: "Project 02",
+    badge: "Perso • 3D",
+    title: "Blender 3D — Modélisation & Rendus",
+    year: "2024",
+    duration: "En continu",
+    type: "Projet personnel",
+    images: [
+      { src: "img/blender01-bus.png", caption: "Bus électrique — modélisation complète" },
+      { src: "img/blender02-maison.png", caption: "Maison individuelle avec jardin et éclairage nocturne" },
+      { src: "img/blender03-immeuble.png", caption: "Immeuble de nuit — fenêtres illuminées et brume" },
+      { src: "img/blender04-station.png", caption: "Station de contrôle avec radars et tour" }
+    ],
+    desc: "Exploration créative de Blender à travers des séries de modélisations allant des objets du quotidien jusqu'à des scènes architecturales complètes avec éclairage, matériaux et rendu Cycles.",
+    longDesc: "J'ai commencé par des objets simples (canette, carnet, micro-ondes) pour maîtriser les bases du mesh editing, puis j'ai progressé vers des scènes plus ambitieuses avec éclairage volumétrique et shaders PBR.",
+    stats: [
+      { val: "10+", lbl: "Scènes" },
+      { val: "2", lbl: "Moteurs rendu" },
+      { val: "∞", lbl: "Itérations" }
+    ],
+    quote: "La 3D m'a appris que la patience est un outil comme un autre.",
+    features: [
+      "Objets randoms — carnet & crayon, canette de chips avec système de particules",
+      "Micro-ondes modélisé avec matériaux PBR et éclairage intérieur",
+      "Bus électrique sur route avec poteaux et câbles haute tension",
+      "Maison individuelle : jardin, clôture, éclairage nocturne volumétrique",
+      "Station de contrôle avec radars rotatifs, tour et brouillard atmosphérique"
+    ],
+    collab: null,
+    tech: ["Blender", "Cycles", "EEVEE", "UV Mapping", "Shader Editor", "Particles"]
+  },
+  "003": {
+    path: "portfolio/projects/03",
+    num: "Project 03",
+    badge: "Perso • Web",
+    title: "Portfolio — Natnael Mehary",
+    year: "2025",
+    duration: "3 semaines",
+    type: "Projet personnel",
+    images: [
+      { src: "img/portfolio-hero.png", caption: "Section Hero — perspective 3D CSS" },
+      { src: "img/portfolio-skills.png", caption: "Accordion Skills — animation cubic-bezier" },
+      { src: "img/portfolio-projects.png", caption: "Liste Projets — ligne accent animée" }
+    ],
+    desc: "Design et développement complet de ce portfolio from scratch. Direction artistique forte : typographie éditoriale Bebas Neue, palette bleue & violette, animations CSS avancées, zéro dépendance externe.",
+    longDesc: "Chaque section a été pensée comme un module autonome : hero cinématique, accordion de skills, liste de projets avec popups liquid glass style iOS 26 et timeline de parcours.",
+    stats: [
+      { val: "0", lbl: "Dépendances JS" },
+      { val: "5", lbl: "Sections" },
+      { val: "100%", lbl: "Vanilla" }
+    ],
+    quote: "Ce portfolio est autant une œuvre de design qu'une vitrine technique.",
+    features: [
+      "Direction artistique complète — Bebas Neue + DM Mono + Barlow",
+      "Hero avec texte en perspective 3D CSS",
+      "Accordion horizontal pour les skills avec animation cubic-bezier",
+      "Popup liquid glass style iOS 26 avec galerie d'images intégrée",
+      "Reveal au scroll via IntersectionObserver — zero jQuery"
+    ],
+    collab: null,
+    tech: ["HTML5", "CSS3", "JavaScript", "CSS Grid", "Google Fonts", "Backdrop Filter"]
+  },
+  "004": {
+    path: "portfolio/projects/04",
+    num: "Project 04",
+    badge: "Scolaire • Réseau",
+    title: "SAE — Infrastructure Réseau & Sécurité",
+    year: "2025",
+    duration: "6 semaines",
+    type: "SAE BUT1",
+    images: [
+      { src: "img/reseau01-schema.png", caption: "Schéma de l'infrastructure réseau complète" },
+      { src: "img/reseau02-proxmox.png", caption: "Interface Proxmox — déploiement des VMs" },
+      { src: "img/reseau03-nftables.png", caption: "Règles nftables — pare-feu et DMZ" }
+    ],
+    desc: "Projet de groupe consistant à déployer une infrastructure réseau complète pour un service de régulation du trafic. Sécurité, haute disponibilité et documentation au cœur du projet.",
+    longDesc: "Réalisé en équipe de 4, ce projet nous a confrontés aux problématiques réelles d'un réseau d'entreprise : segmentation VLAN, DMZ, pare-feu nftables, serveurs DNS/DHCP et déploiement multi-VM via Proxmox.",
+    stats: [
+      { val: "4", lbl: "Membres" },
+      { val: "8+", lbl: "VMs déployées" },
+      { val: "6", lbl: "Semaines" }
+    ],
+    quote: "Sécuriser un réseau, c'est penser comme l'attaquant avant qu'il arrive.",
+    features: [
+      "Mise en place d'un Wiki collaboratif pour documenter l'infrastructure complète",
+      "Serveurs DNS et DHCP configurés from scratch sous Linux Ubuntu",
+      "Déploiement de VMs clients/serveurs via Proxmox avec réseau isolé",
+      "Règles nftables pour pare-feu, DMZ et filtrage inter-VLAN",
+      "Tests de connectivité multi-OS et validation de la sécurisation réseau"
+    ],
+    collab: "Travail en équipe de 4 — chaque membre gérait un sous-système. Les décisions d'architecture étaient prises collectivement.",
+    tech: ["Proxmox", "Bash", "nftables", "DNS", "DHCP", "Linux", "SQL"]
+  },
+  "005": {
+    path: "portfolio/projects/05",
+    num: "Project 05",
+    badge: "Scolaire • Serveur",
+    title: "SAE — Guide d'installation serveur Debian",
+    year: "2025",
+    duration: "4 séances",
+    type: "SAE BUT1 — Individuel",
+    images: [
+      { src: "img/s203-debian.png", caption: "Installation de Debian 13 via Qemu/KVM — étape login UGA" },
+      { src: "img/s203-apache.png", caption: "Page par défaut Apache accessible depuis la machine hôte (localhost:8080)" },
+      { src: "img/s203-psql.png", caption: "Interrogation PostgreSQL depuis la station Linux — mots de passe SHA-256" },
+      { src: "img/s203-phppgadmin.png", caption: "Interface PhpPgAdmin — visualisation et édition de la base" }
+    ],
+    desc: "Réalisation individuelle d'un guide d'installation technique rédigé en anglais, décrivant le déploiement complet d'un serveur Debian 13 équipé d'Apache, PostgreSQL et PHP sur une machine virtuelle Qemu/KVM, interrogeable depuis la machine hôte.",
+    longDesc: "Le projet demande un guide clair, reproductible et illustré, avec captures d'écran obligatoires et une analyse de sécurité sur les choix techniques effectués pendant l'installation.",
+    stats: [
+      { val: "13+", lbl: "Captures requises" },
+      { val: "3", lbl: "Logiciels serveur" },
+      { val: "1", lbl: "Guide PDF EN" }
+    ],
+    quote: "Documenter une installation, c'est s'assurer que quelqu'un d'autre peut la reproduire.",
+    features: [
+      "Installation de Debian 13 (Trixie) sans interface graphique sur Qemu/KVM",
+      "Configuration d'Apache avec redirection de port hôte vers la VM (8080 → 80)",
+      "Déploiement de PostgreSQL : utilisateur, base, table, mots de passe hachés SHA-256",
+      "Installation et test de PHP avec phpinfo() et accès via PhpPgAdmin",
+      "Analyse de sécurité : mises à jour Debian, accès SSH par clé, HTTPS/TLS 1.3",
+      "Guide complet rédigé en anglais avec captures d'écran documentées"
+    ],
+    collab: null,
+    tech: ["Debian 13", "Qemu/KVM", "Apache2", "PostgreSQL", "PHP", "PhpPgAdmin", "SSH", "Bash"]
+  }
+};
+
+const overlay = document.getElementById('terminalOverlay');
+const tbody = document.getElementById('terminalBody');
+const pathEl = document.getElementById('terminalPath');
+let currentIdx = 0;
+let totalImgs = 0;
+
+function buildGallery(images, badge) {
+  if (!images || images.length === 0) {
+    return `<div class="t-gallery">
+      <div class="t-gallery-placeholder">
+        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+          <rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/>
+          <path d="M21 15l-5-5L5 21"/>
+        </svg>
+        Aucune capture disponible
+      </div>
+    </div>`;
+  }
+
+  const imgTags = images.map((img, i) =>
+    `<img class="t-gallery-img${i === 0 ? ' active' : ''}"
+          src="${img.src}"
+          data-caption="${img.caption || ''}"
+          alt="capture ${i + 1}"
+          onerror="this.classList.add('img-error')">`
+  ).join('');
+
+  const dots = images.length > 1
+    ? `<div class="t-gallery-dots">${images.map((_, i) =>
+        `<button class="t-gallery-dot${i === 0 ? ' active' : ''}" data-dot="${i}"></button>`
+      ).join('')}</div>`
+    : '';
+
+  const nav = images.length > 1
+    ? `<div class="t-gallery-nav">
+        <button class="t-gallery-btn" id="galleryPrev">←</button>
+        <span class="t-gallery-counter" id="galleryCounter">1 / ${images.length}</span>
+        <button class="t-gallery-btn" id="galleryNext">→</button>
+      </div>`
+    : '';
+
+  return `<div class="t-gallery" id="mainGallery">
+    <div class="t-gallery-badge">${badge}</div>
+    ${imgTags}
+    <div class="t-gallery-caption" id="galleryCaption">${images[0]?.caption || ''}</div>
+    ${dots}
+    ${nav}
+  </div>`;
+}
+
+function changeImg(dir) {
+  const imgs = tbody.querySelectorAll('.t-gallery-img');
+  const dots = tbody.querySelectorAll('.t-gallery-dot');
+  const counter = document.getElementById('galleryCounter');
+  const caption = document.getElementById('galleryCaption');
+  if (!imgs.length) return;
+
+  imgs[currentIdx].classList.remove('active');
+  dots[currentIdx]?.classList.remove('active');
+
+  currentIdx = (currentIdx + totalImgs + dir) % totalImgs;
+
+  imgs[currentIdx].classList.add('active');
+  dots[currentIdx]?.classList.add('active');
+  if (counter) counter.textContent = `${currentIdx + 1} / ${totalImgs}`;
+  if (caption) caption.textContent = imgs[currentIdx].dataset.caption || '';
+}
+
+function goToImg(idx) {
+  const diff = idx - currentIdx;
+  if (diff !== 0) changeImg(diff > 0 ? diff : totalImgs + diff);
+}
+
+function openProject(id) {
+  const p = projects[id];
+  if (!p) return;
+
+  currentIdx = 0;
+  totalImgs = p.images?.length || 0;
+  pathEl.textContent = p.path;
+
+  const statsHtml = (p.stats && p.stats.length)
+    ? `<div class="t-stats">${p.stats.map(s =>
+        `<div class="t-stat">
+          <span class="t-stat-val">${s.val}</span>
+          <span class="t-stat-lbl">${s.lbl}</span>
+        </div>`).join('')}</div>`
+    : '';
+
+  const collabHtml = p.collab
+    ? `<div class="t-collab">
+        <div class="t-collab-icon">🤝</div>
+        <div class="t-collab-text">
+          <strong>Travail en groupe</strong>
+          ${p.collab}
+        </div>
+      </div>`
+    : '';
+
+  tbody.innerHTML = `
+    ${buildGallery(p.images, p.badge)}
+
+    <div class="t-proj-label">${p.num}</div>
+    <div class="t-proj-title">${p.title}</div>
+
+    <div class="t-meta-row">
+      <div class="t-meta-chip"><span>📅</span>${p.year}</div>
+      <div class="t-meta-chip"><span>⏱</span>${p.duration}</div>
+      <div class="t-meta-chip"><span>🗂</span>${p.type}</div>
+    </div>
+
+    <div class="t-proj-desc">${p.desc}</div>
+
+    ${statsHtml}
+
+    <blockquote class="t-quote">${p.quote}</blockquote>
+
+    <div class="t-section-title">Compétences acquises</div>
+    <ul class="t-features">
+      ${p.features.map(f => `<li>${f}</li>`).join('')}
+    </ul>
+
+    ${collabHtml}
+
+    <div class="t-section-title">Technologies utilisées</div>
+    <div class="t-tech-row">
+      ${p.tech.map(t => `<span class="t-tech">${t}</span>`).join('')}
+    </div>
+  `;
+
+  if (totalImgs > 1) {
+    document.getElementById('galleryNext')?.addEventListener('click', () => changeImg(1));
+    document.getElementById('galleryPrev')?.addEventListener('click', () => changeImg(-1));
+    tbody.querySelectorAll('.t-gallery-dot').forEach(dot => {
+      dot.addEventListener('click', () => goToImg(+dot.dataset.dot));
+    });
+  }
+
+  tbody.scrollTop = 0;
+  overlay.classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+
+function closeTerminal() {
+  overlay.classList.remove('open');
+  document.body.style.overflow = '';
+}
+
+document.querySelectorAll('.proj-item[data-project]').forEach(el => {
+  el.addEventListener('click', () => openProject(el.dataset.project));
+});
+document.getElementById('dotClose').addEventListener('click', closeTerminal);
+overlay.addEventListener('click', e => { if (e.target === overlay) closeTerminal(); });
+document.addEventListener('keydown', e => {
+  if (!overlay.classList.contains('open')) return;
+  if (e.key === 'Escape') closeTerminal();
+  if (e.key === 'ArrowRight') changeImg(1);
+  if (e.key === 'ArrowLeft') changeImg(-1);
+});
+
+const reveals = document.querySelectorAll('.reveal');
+const obs = new IntersectionObserver(entries => {
+  entries.forEach((e, i) => {
+    if (e.isIntersecting) setTimeout(() => e.target.classList.add('visible'), i * 80);
+    else e.target.classList.remove('visible');
+  });
+}, { threshold: 0.12 });
+reveals.forEach(r => obs.observe(r));
+</script>
+</body>
+</html>
