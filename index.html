@@ -1159,7 +1159,7 @@ footer p {
       2026
     </div>
   </div>
-  <div class="hero-scroll">Défiler</div>
+  <div class="hero-scroll">Scroll</div>
 </section>
 
 <div class="ticker-wrap">
@@ -1191,12 +1191,6 @@ footer p {
     </div>
     <div class="about-text">
       <p>Je suis un étudiant en BUT Informatique à l'IUT de Grenoble, passionné par le développement informatique et l'administration système. J'ai un solide niveau d'anglais qui me donne la possibilité de travailler à l'international. Mon objectif est d'exercer un métier frontend ou full-stack en entreprise.</p>
-      <div style="margin-top:32px;">
-        <span class="badge">18 ans</span>
-        <span class="badge">Anglais C1</span>
-        <span class="badge">Programmation</span>
-        <span class="badge">Administration</span>
-      </div>
     </div>
   </div>
 </section>
@@ -1381,7 +1375,11 @@ const projects = {
     year: "2025/2026",
     duration: "Java",
     type: "Projet scolaire",
-    desc: "Développement d'un chatbot intelligent capable de répondre à des questions de culture générale. Le système utilise une approche en entonnoir avec deux étapes : recherche thématique des réponses candidates basée sur les mots-clés, puis sélection selon la cohérence de forme avec la question.",
+      images: [
+    { src: "chatbot01.png", caption: "Interaction avec le chatbot" },
+    { src: "chatbot02.png", caption: "Exemple d'apprentissage" }
+  ],
+    desc: "Développement d'un chatbot intelligent capable de répondre à des questions de culture générale. Le système utilise une approche en entonnoir avec deux étapes : recherche thématique des réponses candidates basée sur les mots-clés, puis sélection selon la cohérence de forme avec la question. Le chatot est egalement capable d'apprendre de nouvelles informations grace aux interactions avec l'utilisateur",
     longDesc: "Objectif : créer un chatbot rapide et fiable avec gestion d'index optimisés, support des synonymes, contexte conversationnel et capacité d'apprentissage interactif.",
     quote: "Un bon chatbot ne répond pas seulement vite : il répond juste.",
     features: [
@@ -1393,7 +1391,7 @@ const projects = {
       "Architecture pensée pour la rapidité et la fiabilité."
     ],
     collab: null,
-    tech: ["Java", "Algorithmes", "Indexation", "Contextualisation"]
+    tech: ["Java", "Algorithmes"]
   },
 "002": {
   path: "portfolio/projects/02",
@@ -1413,7 +1411,7 @@ const projects = {
     "Mise à jour/nettoyage manuel des paquets."
   ],
   collab: null,
-  tech: ["Debian 13", "KDE/Plasma", "Git"],
+  tech: ["Debian", "Administration système"],
   projectUrl: "guide-installation.pdf",
   projectButtonLabel: "Voir le guide",
   projectUrl2: null,
@@ -1444,7 +1442,7 @@ const projects = {
     "Environnement isolé pour les tests."
   ],
   collab: null,
-  tech: ["Linux", "Partitionnement", "Système invité"],
+  tech: ["Linux", "Administration système"],
   projectUrl: null,
   projectButtonLabel: null,
   projectUrl2: "https://www.mindmeister.com/app/map/3486180692",
