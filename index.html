@@ -1,12 +1,12 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Natnael Mehary - Portfolio</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="shortcut icon" href="favicon.png">
-<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Mono:wght@400;500&family=Barlow:wght@300;400;600&display=swap" rel="stylesheet">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Natnael Mehary - Portfolio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="shortcut icon" href="favicon.png">
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Mono:wght@400;500&family=Barlow:wght@300;400;600&display=swap" rel="stylesheet">
 
   <style>
 * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -27,6 +27,8 @@ body {
   overflow-x: hidden;
   background: blue;
 }
+
+/* NAVBAR */
 
 nav {
   position: fixed;
@@ -55,6 +57,11 @@ nav {
   animation: nav-blink .85s step-start infinite;
 }
 
+@keyframes nav-blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+
 .nav-right { display: flex; align-items: center; gap: 22px; }
 .nav-links { display: flex; gap: 48px; list-style: none; }
 
@@ -78,10 +85,7 @@ nav {
 
 .nav-links a:hover { opacity: .75; }
 
-@keyframes nav-blink {
-  0%, 100% { opacity: 1; }
-  50% { opacity: 0; }
-}
+/* HERO */
 
 #hero {
   min-height: 100vh;
@@ -182,6 +186,29 @@ section { padding: 100px 40px; position: relative; }
   opacity: .5;
 }
 
+/* TICKER */
+
+.ticker-wrap { overflow: hidden; background: #050509; padding: 14px 0; white-space: nowrap; }
+.ticker-inner { display: inline-flex; animation: ticker 20s linear infinite; }
+
+.ticker-item {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 13px;
+  letter-spacing: .2em;
+  color: var(--white);
+  padding: 0 40px;
+  text-transform: uppercase;
+}
+
+.ticker-item span { color: var(--accent); margin: 0 16px; }
+
+@keyframes ticker {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+/* ABOUT */
+
 #about { background: var(--violet); }
 
 .about-grid {
@@ -216,20 +243,7 @@ section { padding: 100px 40px; position: relative; }
   margin-bottom: 24px;
 }
 
-.badge {
-  display: inline-block;
-  font-family: 'DM Mono', monospace;
-  font-size: 13px;
-  letter-spacing: .1em;
-  text-transform: uppercase;
-  padding: 6px 16px;
-  border: 1px solid #fff;
-  color: #fff;
-  margin: 4px 4px 4px 0;
-  transition: background .2s, color .2s;
-}
-
-.badge:hover { background: var(--white); color: var(--violet); }
+/* SKILLS */
 
 #skills { background: #050509; padding: 100px 40px; }
 #skills .section-label { color: #fff; }
@@ -250,6 +264,7 @@ section { padding: 100px 40px; position: relative; }
 }
 
 .accordion { display: flex; gap: 3px; height: 280px; }
+
 .acc-panel {
   flex: 1;
   background: rgba(255,255,255,.03);
@@ -263,11 +278,13 @@ section { padding: 100px 40px; position: relative; }
   flex-direction: column;
   justify-content: flex-end;
 }
+
 .acc-panel:hover {
   flex: 4;
   background: rgba(153,0,255,.07);
   border-color: rgba(153,0,255,.3);
 }
+
 .acc-panel::before {
   content: '';
   position: absolute;
@@ -276,6 +293,7 @@ section { padding: 100px 40px; position: relative; }
   background: var(--accent);
   transition: height .45s cubic-bezier(.77,0,.18,1);
 }
+
 .acc-panel:hover::before { height: 100%; }
 
 .acc-cat {
@@ -290,12 +308,14 @@ section { padding: 100px 40px; position: relative; }
   margin-bottom: 0;
   margin-top: 30px;
 }
+
 .acc-panel:hover .acc-cat {
   writing-mode: horizontal-tb;
   transform: none;
   font-size: 30px;
   margin-bottom: 16px;
 }
+
 .acc-skills {
   opacity: 0;
   max-height: 0;
@@ -305,6 +325,7 @@ section { padding: 100px 40px; position: relative; }
   flex-direction: column;
   gap: 0;
 }
+
 .acc-panel:hover .acc-skills { opacity: 1; max-height: 300px; }
 
 .acc-skill {
@@ -318,6 +339,7 @@ section { padding: 100px 40px; position: relative; }
   align-items: center;
   gap: 10px;
 }
+
 .acc-skill::before {
   content: '';
   width: 5px; height: 5px;
@@ -325,6 +347,7 @@ section { padding: 100px 40px; position: relative; }
   background: var(--accent);
   flex-shrink: 0;
 }
+
 .acc-skill:last-child { border-bottom: none; }
 
 .acc-num {
@@ -335,6 +358,8 @@ section { padding: 100px 40px; position: relative; }
   color: var(--accent);
   letter-spacing: .1em;
 }
+
+/* PROJECTS */
 
 #projects { background: var(--white); padding: 100px 0; }
 
@@ -424,25 +449,6 @@ section { padding: 100px 40px; position: relative; }
 
 .proj-item:hover .proj-name { letter-spacing: .04em; }
 
-.proj-tags { display: flex; gap: 8px; flex-wrap: wrap; }
-.proj-tag {
-  font-family: 'DM Mono', monospace;
-  font-size: 12px;
-  letter-spacing: .1em;
-  text-transform: uppercase;
-  padding: 5px 12px;
-  border: 1px solid rgba(0,0,0,.18);
-  color: rgba(0,0,0,.45);
-}
-
-.proj-year {
-  font-family: 'DM Mono', monospace;
-  font-size: 13px;
-  color: rgba(0,0,0,.3);
-  letter-spacing: .08em;
-  text-align: right;
-}
-
 .proj-arrow {
   font-size: 22px;
   color: rgba(0,0,0,.2);
@@ -451,6 +457,8 @@ section { padding: 100px 40px; position: relative; }
 }
 
 .proj-item:hover .proj-arrow { color: var(--accent); transform: rotate(-45deg); }
+
+/* PARCOURS */
 
 #parcours { background: var(--violet); }
 #parcours .section-label { color: #fff; }
@@ -543,6 +551,8 @@ section { padding: 100px 40px; position: relative; }
   display: inline-block;
 }
 
+/* CONTACT */
+
 #contact { background: #050509; }
 
 .contact-grid {
@@ -577,6 +587,7 @@ section { padding: 100px 40px; position: relative; }
   text-decoration: none;
   transition: padding-left .2s;
 }
+
 .soc-link:last-child { border-bottom: 1px solid rgba(255,255,255,.15); }
 .soc-link:hover { padding-left: 10px; }
 
@@ -651,6 +662,8 @@ section { padding: 100px 40px; position: relative; }
   transform: translateY(-2px);
 }
 
+/* FOOTER */
+
 footer {
   background: #050509;
   padding: 28px 40px;
@@ -667,27 +680,7 @@ footer p {
   letter-spacing: .1em;
 }
 
-.reveal { opacity: 0; transform: translateY(30px); transition: opacity .7s ease, transform .7s ease; }
-.reveal.visible { opacity: 1; transform: translateY(0); }
-
-.ticker-wrap { overflow: hidden; background: #050509; padding: 14px 0; white-space: nowrap; }
-.ticker-inner { display: inline-flex; animation: ticker 20s linear infinite; }
-
-.ticker-item {
-  font-family: 'Bebas Neue', sans-serif;
-  font-size: 13px;
-  letter-spacing: .2em;
-  color: var(--white);
-  padding: 0 40px;
-  text-transform: uppercase;
-}
-
-.ticker-item span { color: var(--accent); margin: 0 16px; }
-
-@keyframes ticker {
-  0% { transform: translateX(0); }
-  100% { transform: translateX(-50%); }
-}
+/* TERMINAL OVERLAY (PROJECT MODAL) */
 
 .terminal-overlay {
   position: fixed;
@@ -782,9 +775,7 @@ footer p {
     radial-gradient(circle at bottom left, rgba(255,255,255,.05), transparent 28%);
 }
 
-.terminal-body::-webkit-scrollbar {
-  display: none;
-}
+.terminal-body::-webkit-scrollbar { display: none; }
 
 .t-project-hero {
   margin-bottom: 22px;
@@ -874,32 +865,6 @@ footer p {
 .t-gallery-img.active {
   opacity: 1;
   transform: scale(1.01);
-}
-
-.t-gallery-placeholder {
-  width: 100%;
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: 10px;
-  font-family: 'DM Mono', monospace;
-  font-size: 11px;
-  letter-spacing: .14em;
-  color: rgba(255,255,255,.2);
-  text-transform: uppercase;
-  background: repeating-linear-gradient(
-    45deg,
-    rgba(255,255,255,.02) 0px,
-    rgba(255,255,255,.02) 1px,
-    transparent 1px,
-    transparent 12px
-  );
-}
-
-.t-gallery-placeholder svg {
-  opacity: .15;
 }
 
 .t-gallery-badge {
@@ -1040,9 +1005,7 @@ footer p {
   line-height: 1.5;
 }
 
-.t-features li:last-child {
-  border-bottom: none;
-}
+.t-features li:last-child { border-bottom: none; }
 
 .t-features li::before {
   content: '';
@@ -1055,42 +1018,7 @@ footer p {
   margin-top: 6px;
 }
 
-.t-collab {
-  display: flex;
-  align-items: flex-start;
-  gap: 14px;
-  background: rgba(255,255,255,.04);
-  border: 1px solid rgba(255,255,255,.1);
-  border-radius: 12px;
-  padding: 16px 18px;
-  margin-bottom: 22px;
-}
-
-.t-collab-icon {
-  font-size: 22px;
-  flex-shrink: 0;
-  line-height: 1.2;
-}
-
-.t-collab-text {
-  font-family: 'Barlow', sans-serif;
-  font-size: 13px;
-  font-weight: 300;
-  color: rgba(255,255,255,.7);
-  line-height: 1.7;
-}
-
-.t-collab-text strong {
-  color: #fff;
-  font-weight: 600;
-  display: block;
-  margin-bottom: 4px;
-  font-size: 14px;
-}
-
-.project-link-wrap {
-  margin-top: 16px;
-}
+.project-link-wrap { margin-top: 16px; }
 
 .project-link-btn {
   display: inline-flex;
@@ -1116,6 +1044,13 @@ footer p {
   filter: brightness(1.08);
 }
 
+/* REVEAL */
+
+.reveal { opacity: 0; transform: translateY(30px); transition: opacity .7s ease, transform .7s ease; }
+.reveal.visible { opacity: 1; transform: translateY(0); }
+
+/* RESPONSIVE */
+
 @media(max-width:900px) {
   nav { padding: 20px 24px; flex-wrap: wrap; gap: 12px; }
   .nav-right { flex-direction: column-reverse; align-items: flex-end; gap: 14px; }
@@ -1129,11 +1064,10 @@ footer p {
   .acc-skills { opacity: 1 !important; max-height: none !important; }
   .proj-item { grid-template-columns: 48px 1fr 52px; padding: 20px 24px; }
   .proj-item:hover { padding-left: 24px; }
-  .proj-tags, .proj-year { display: none; }
   .tl { padding-left: 36px; }
   .tl-item::before { left: -32px; }
 }
-</style>
+  </style>
 </head>
 <body>
 
@@ -1190,7 +1124,7 @@ footer p {
       <div class="about-title">À&nbsp;PROPOS <span><br>DE MOI</span></div>
     </div>
     <div class="about-text">
-      <p>Je suis un étudiant en BUT Informatique à l'IUT de Grenoble, passionné par le développement informatique et l'administration système. J'ai un solide niveau d'anglais qui me donne la possibilité de travailler à l'international. Mon objectif est d'exercer un métier frontend ou full-stack en entreprise.</p>
+      <p>Je suis un étudiant en BUT Informatique à l'IUT de Grenoble, passionné par le développement informatique, l'administration système et la programmation bas niveau. J'ai un solide niveau d'anglais qui me donne la possibilité de travailler à l'international. Mon objectif est d'exercer un métier frontend ou full-stack en entreprise.</p>
     </div>
   </div>
 </section>
@@ -1205,7 +1139,7 @@ footer p {
         <div class="acc-skill">Java</div>
         <div class="acc-skill">PostgreSQL</div>
         <div class="acc-skill">Shell Linux</div>
-        <div class="acc-skill">Assembly x86</div>
+        <div class="acc-skill">Assembly x86 / 68000</div>
         <div class="acc-skill">R project</div>
       </div>
       <div class="acc-cat">Backend</div>
@@ -1226,7 +1160,7 @@ footer p {
         <div class="acc-skill">GitLab / GitHub</div>
         <div class="acc-skill">Distributions Linux</div>
         <div class="acc-skill">IntelliJ / VS Code</div>
-        <div class="acc-skill">Blender</div>
+        <div class="acc-skill">Exodus / SGDK (Sega MegaDrive)</div>
       </div>
       <div class="acc-cat">Outils</div>
     </div>
@@ -1256,7 +1190,7 @@ footer p {
     </div>
     <div class="proj-item reveal" data-project="004">
       <span class="proj-num">004</span>
-      <span class="proj-name">Modelisation 3D</span>
+      <span class="proj-name">Jeu de casse-briques</span>
       <span class="proj-arrow">↗</span>
     </div>
   </div>
@@ -1288,7 +1222,7 @@ footer p {
     <div class="tl-item">
       <div class="tl-year">2024 — Maintenant</div>
       <div class="tl-school">BUT Info — IUT Grenoble</div>
-      <div class="tl-detail">Développement logiciel, réseaux, bases de données, systèmes d'exploitation. SAEs techniques réalisées en équipe.</div>
+      <div class="tl-detail">Développement logiciel, réseaux, bases de données, systèmes d'exploitation, et programmation assembleur 68000 sur Sega MegaDrive.</div>
       <div class="tl-tags">
         <span class="tl-tag">Programmation</span>
         <span class="tl-tag">Développement d'application</span>
@@ -1375,105 +1309,110 @@ const projects = {
     year: "2025/2026",
     duration: "Java",
     type: "Projet scolaire",
-      images: [
-    { src: "chatbot01.png", caption: "Interaction avec le chatbot" },
-    { src: "chatbot02.png", caption: "Exemple d'apprentissage" }
-  ],
-    desc: "Développement d'un chatbot intelligent capable de répondre à des questions de culture générale. Le système utilise une approche en entonnoir avec deux étapes : recherche thématique des réponses candidates basée sur les mots-clés, puis sélection selon la cohérence de forme avec la question. Le chatot est egalement capable d'apprendre de nouvelles informations grace aux interactions avec l'utilisateur",
+    images: [
+      { src: "chatbot01.png", caption: "Interaction avec le chatbot" },
+      { src: "chatbot02.png", caption: "Exemple d'apprentissage" }
+    ],
+    desc: "Développement d'un chatbot intelligent capable de répondre à des questions de culture générale, avec index thématique, gestion des synonymes et apprentissage à partir des interactions.",
     longDesc: "Objectif : créer un chatbot rapide et fiable avec gestion d'index optimisés, support des synonymes, contexte conversationnel et capacité d'apprentissage interactif.",
     quote: "Un bon chatbot ne répond pas seulement vite : il répond juste.",
     features: [
-      "Recherche thématique basée sur les mots-clés de la question posée",
-      "Sélection des réponses selon la forme grammaticale",
-      "Support des synonymes et variantes de mots",
-      "Contexte conversationnel pour les questions incomplètes",
-      "Capacité du bot a apprendre grace a l'utlisateur",
+      "Recherche thématique basée sur les mots-clés de la question posée.",
+      "Sélection des réponses selon la forme grammaticale.",
+      "Support des synonymes et variantes de mots.",
+      "Contexte conversationnel pour les questions incomplètes.",
+      "Capacité du bot à apprendre grâce à l'utilisateur.",
       "Architecture pensée pour la rapidité et la fiabilité."
     ],
     collab: null,
-    tech: ["Java", "Algorithmes"]
+    tech: ["Programmer un projet complexe","Java", "Algorithmes"]
   },
-"002": {
-  path: "portfolio/projects/02",
-  num: "Project 02",
-  badge: "Scolaire • Linux",
-  title: "Guide d'installation d'un poste de développement",
-  year: "2025/2026",
-  duration: "Semaine bloquée",
-  type: "SAE S1.03 — individuel",
-  images: [],
-  desc: "Réalisation d'un poste de développement Debian avec vérification d'intégrité de l'image ISO, installation complète du système, configuration de sudo, gestion des packages Debian, puis installation des outils de développement comme Git, JDK et IntelliJ IDEA.",
-  longDesc: "Le projet reprend la logique de la SAÉ S1.03 : installation d'une machine Debian, configuration du bureau Plasma, utilisation des commandes d'administration système, manipulation de apt, snap et flatpak, puis production de captures d'écran démontrant chaque étape. Le rendu doit montrer que tout peut être refait en autonomie.",
-  quote: "",
-  features: [
-    "Installation d'une distribution Linux (Debian 13) sans interface graphique.",
-    "Installation d'applications via les paquets Debian, puis contrôle des versions.",
-    "Mise à jour/nettoyage manuel des paquets."
-  ],
-  collab: null,
-  tech: ["Debian", "Administration système"],
-  projectUrl: "guide-installation.pdf",
-  projectButtonLabel: "Voir le guide",
-  projectUrl2: null,
-  projectButtonLabel2: null
-},
-"003": {
-  path: "portfolio/projects/03",
-  num: "Project 03",
-  badge: "Scolaire • VM",
-  title: "Installation d'une machine virtuelle",
-  year: "2025",
-  duration: "Projet scolaire",
-  type: "VM Linux",
-  images: [
-    { src: "vm01.png", caption: "Installation de Intellij avec Snap" },
-    { src: "vm02.png", caption: "Espace disque utilisé et disponible" },
-    { src: "vm03.png", caption: "Ouverture d'un shell de connexion root" },
-    { src: "vm04.png", caption: "La carte mentale crée" }
-  ],
-  desc: "Projet centré sur l'installation et la configuration d'une machine virtuelle pour reproduire un environnement de travail isolé et réutilisable. Création d'une carte mentale documentant le projet de maniere detaillée",
-  longDesc: "L'objectif est de maîtriser les étapes essentielles de création d'une VM : choix des ressources, configuration du support d'installation et validation du bon fonctionnement de l'environnement virtualisé.",
-  quote: "Virtualiser, c'est préparer un environnement sans toucher au système principal.",
-  features: [
-    "Création de la machine virtuelle.",
-    "Gestion du processeur, de la mémoire et du stockage.",
-    "Installation du système invité.",
-    "Validation du démarrage et de l'accès.",
-    "Environnement isolé pour les tests."
-  ],
-  collab: null,
-  tech: ["Linux", "Administration système"],
-  projectUrl: null,
-  projectButtonLabel: null,
-  projectUrl2: "https://www.mindmeister.com/app/map/3486180692",
-  projectButtonLabel2: "Voir la carte mentale"
-},
+  "002": {
+    path: "portfolio/projects/02",
+    num: "Project 02",
+    badge: "Scolaire • Linux",
+    title: "Guide d'installation d'un poste de développement",
+    year: "2025/2026",
+    duration: "Semaine bloquée",
+    type: "SAE S1.03 — individuel",
+    images: [],
+    desc: "Réalisation d'un poste de développement Debian avec vérification d'intégrité de l'image ISO, installation complète du système, configuration de sudo, gestion des paquets Debian, puis installation des outils de développement (Git, JDK, IntelliJ IDEA).",
+    longDesc: "Le projet reprend la logique de la SAÉ S1.03 : installation d'une machine Debian, configuration du bureau, utilisation des commandes d'administration système, manipulation de apt, snap et flatpak, puis production de captures d'écran démontrant chaque étape.",
+    quote: "",
+    features: [
+      "Installation d'une distribution Linux (Debian) sans interface graphique.",
+      "Configuration de sudo et des comptes utilisateurs.",
+      "Installation d'applications via les paquets Debian, puis contrôle des versions.",
+      "Mise à jour/nettoyage manuel des paquets."
+    ],
+    collab: null,
+    tech: ["Administrer un système", "Debian"],
+    projectUrl: "guide-installation.pdf",
+    projectButtonLabel: "Voir le guide",
+    projectUrl2: null,
+    projectButtonLabel2: null
+  },
+  "003": {
+    path: "portfolio/projects/03",
+    num: "Project 03",
+    badge: "Scolaire • VM",
+    title: "Installation d'une machine virtuelle",
+    year: "2025",
+    duration: "Projet scolaire",
+    type: "VM Linux",
+    images: [
+      { src: "vm01.png", caption: "Installation d'IntelliJ avec Snap" },
+      { src: "vm02.png", caption: "Espace disque utilisé et disponible" },
+      { src: "vm03.png", caption: "Ouverture d'un shell de connexion root" },
+      { src: "vm04.png", caption: "Carte mentale documentant le projet" }
+    ],
+    desc: "Projet centré sur l'installation et la configuration d'une machine virtuelle pour reproduire un environnement de travail isolé et réutilisable, documenté par une carte mentale détaillée.",
+    longDesc: "L'objectif est de maîtriser les étapes essentielles de création d'une VM : choix des ressources, configuration du support d'installation et validation du bon fonctionnement de l'environnement virtualisé.",
+    quote: "Virtualiser, c'est préparer un environnement sans toucher au système principal.",
+    features: [
+      "Création de la machine virtuelle.",
+      "Gestion du processeur, de la mémoire et du stockage.",
+      "Installation du système invité.",
+      "Validation du démarrage et de l'accès.",
+      "Environnement isolé pour les tests."
+    ],
+    collab: null,
+    tech: ["Administrer un système", "Linux"],
+    projectUrl: null,
+    projectButtonLabel: null,
+    projectUrl2: "https://www.mindmeister.com/app/map/3486180692",
+    projectButtonLabel2: "Voir la carte mentale"
+  },
   "004": {
     path: "portfolio/projects/04",
     num: "Project 04",
-    badge: "Perso • 3D",
-    title: "Modelisation 3D",
-    year: "2024",
-    duration: "En continu",
-    type: "Projet personnel",
+    badge: "Scolaire • Assembleur",
+    title: "Jeu de casse-briques (assembleur 68000)",
+    year: "2025/2026",
+    duration: "Suite de TP",
+    type: "TP R2.04a — Fonctionnement bas niveau",
     images: [
-      { src: "img/blender01-bus.png", caption: "Bus électrique — modélisation complète" },
-      { src: "img/blender02-maison.png", caption: "Maison individuelle avec jardin et éclairage nocturne" },
-      { src: "img/blender03-immeuble.png", caption: "Immeuble de nuit — fenêtres illuminées et brume" },
-      { src: "img/blender04-station.png", caption: "Station de contrôle avec radars et tour" }
+      { src: "asm01.png", caption: "Environnement Exodus avec registres/mémoire" },
+      { src: "asm02.png", caption: "Balle en collision avec une brique" }, 
+      { src: "asm03.png", caption: "Raquette contrôlée avec la manette " }
     ],
-    desc: "Exploration créative de Blender à travers des séries de modélisations allant des objets du quotidien jusqu'à des scènes architecturales complètes avec éclairage, matériaux et rendu Cycles.",
-    longDesc: "J'ai commencé par des objets simples (canette, carnet, micro-ondes) pour maîtriser les bases du mesh editing, puis j'ai progressé vers des scènes plus ambitieuses avec éclairage volumétrique et shaders PBR.",
-    quote: "La 3D m'a appris que la patience est un outil comme un autre.",
+    desc: "Projet de programmation bas niveau sur Sega MegaDrive en assembleur 68000 : génération d'un mur de briques, placement des coordonnées, contrôle de la raquette et gestion des collisions de la balle.",
+    longDesc: "Ce projet regroupe plusieurs TP de fonctionnement bas niveau : découverte de l'environnement Exodus et de la chaîne SGDK, génération d'un motif de couleurs pour un mur de briques, calcul des coordonnées des briques, déplacement de la raquette et gestion de la pile, puis détection des collisions entre la balle et les briques.",
+    quote: "Comprendre la machine, c'est comprendre ce qui se passe pixel par pixel.",
     features: [
-      "Objets randoms — carnet & crayon, canette de chips avec système de particules",
-      "Micro-ondes modélisé avec matériaux PBR et éclairage intérieur",
-      "Bus électrique sur route avec poteaux et câbles haute tension",
-      "Maison individuelle : jardin, clôture, éclairage nocturne volumétrique",
-      "Station de contrôle avec radars rotatifs, tour et brouillard atmosphérique"
+      "Découverte de la console Sega MegaDrive, de l'émulateur Exodus et de la chaîne de compilation SGDK.",
+      "Génération d'un motif de couleurs pour un mur de briques.",
+      "Calcul des coordonnées de chaque brique.",
+      "Lecture des boutons du pad et limitation des déplacements.",
+      "Détection des collisions entre la balle et les briques",
+      "Organisation du code en sous-programmes réutilisables."
     ],
     collab: null,
-    tech: ["Blender", "Cycles", "EEVEE", "UV Mapping", "Shader Editor", "Particles"]
+    tech: ["Programmer à bas niveau", "Assembleur 68000", "Sega MegaDrive"],
+    projectUrl: null,
+    projectButtonLabel: null,
+    projectUrl2: null,
+    projectButtonLabel2: null
   }
 };
 
@@ -1576,7 +1515,7 @@ function openProject(id) {
       </div>`
     : '';
 
-tbody.innerHTML = `
+  tbody.innerHTML = `
     <div class="t-project-hero">
       <div class="t-proj-label">${p.num}</div>
       <div class="t-proj-title">${p.title}</div>
@@ -1632,6 +1571,7 @@ document.addEventListener('keydown', e => {
   if (e.key === 'ArrowLeft') changeImg(-1);
 });
 
+/* Reveal animations */
 const reveals = document.querySelectorAll('.reveal');
 const obs = new IntersectionObserver(entries => {
   entries.forEach((e, i) => {
